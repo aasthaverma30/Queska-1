@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI-Powered Question Generator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='inner_styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>AI-Powered Question Generator</h1>
+            <p>Upload a PDF syllabus to generate a set of questions across multiple difficulty levels.</p>
+        </header>
+
+        <section class="upload-form">
+            <form action="{{ url_for('question_generator') }}" method="POST" enctype="multipart/form-data">
+                <div class="file-upload">
+                    <label for="file-input">Upload Syllabus (PDF):</label>
+                    <input type="file" id="file-input" name="file" accept=".pdf" required>
+                </div>
+                <button type="submit" class="submit-btn">Generate Questions</button>
+            </form>
+        </section>
+
+        {% if questions %}
+        <section class="questions-output">
+            <h2>Generated Questions:</h2>
+            <ul>
+                {% for question in questions %}
+                    <li>{{ question }}</li>
+                {% endfor %}
+            </ul>
+        </section>
+        {% endif %}
+
+        <footer>
+            <p>&copy; 2024 AI Question Generator. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>

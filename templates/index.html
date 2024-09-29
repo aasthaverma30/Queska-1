@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>AI Question Paper Generator</title>
+    
+    <!-- Google Sign-In Client ID -->
+    <meta name="google-signin-client_id" content="
+    784267204341-i5fe21tefdbhs9mrc9lpdph6h530vd3l.apps.googleusercontent.com">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="{{ url_for('static', filename='Logo.PNG') }}" alt="Brand Logo">
+            </div>
+        </nav>
+    </header>
+
+    <!-- About Section -->
+    <section id="about" class="section about-section">
+        <div class="about-content">
+            <div class="about-text">
+                <h2>Welcome to the Future of Question Paper Generation</h2>
+                <p>
+                    Our AI-powered question paper generator is a revolutionary tool designed to streamline 
+                    the process of creating high-quality, diverse, and engaging question papers for educators, 
+                    schools, and universities. By leveraging advanced AI models, we provide a seamless way to 
+                    convert your syllabus into a wide variety of questions — from multiple choice to essay-type 
+                    questions, covering different levels of difficulty.
+                </p>
+                <p>
+                    Whether you're a teacher looking to save time, or an institution seeking an intelligent, 
+                    automated solution, our platform is designed to handle it all. It analyzes your syllabus, 
+                    understands the core concepts, and crafts questions that promote critical thinking and 
+                    knowledge application.
+                </p>
+            </div>
+            <div class="about-image">
+                <img src="{{ url_for('static', filename='Image.PNG') }}" alt="AI in Action">
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Us Section -->
+    <section id="why-us" class="section why-us-section">
+        <div class="why-us-content">
+            <h2>Why Our Tool is Better?</h2>
+            <p>
+                Traditional question paper generation can be a cumbersome and time-consuming task. Our tool 
+                is designed to make this process smarter and faster. By incorporating AI-driven insights, 
+                we ensure the questions generated are not only relevant but also cater to a wide range of 
+                learning styles. Here’s why our tool stands out:
+            </p>
+            <ul>
+                <li>⚡ <strong>Speed:</strong> Get your question papers generated in seconds.</li>
+                <li>📚 <strong>Diversity:</strong> Generates questions of different types and difficulty levels.</li>
+                <li>🧠 <strong>AI Intelligence:</strong> Our system understands the subject matter deeply, ensuring meaningful questions.</li>
+                <li>💡 <strong>Customization:</strong> Tailor the number and type of questions based on your needs.</li>
+                <li>📊 <strong>Data-Driven:</strong> Built to align with educational standards and objectives.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="section how-it-works-section">
+        <div class="how-it-works-content">
+            <h2>How It Works</h2>
+            <p>
+                Using our AI-powered question generator is simple and intuitive. Here’s a step-by-step guide 
+                to help you get started:
+            </p>
+            <ol>
+                <li><strong>Step 1:</strong> Upload your syllabus in PDF format using the form below.</li>
+                <li><strong>Step 2:</strong> The AI will analyze the syllabus content, extracting key topics and themes.</li>
+                <li><strong>Step 3:</strong> Our system will generate a set of questions covering multiple choice, short answers, and essay formats.</li>
+                <li><strong>Step 4:</strong> Download your custom question paper and start preparing your students for success!</li>
+            </ol>
+        </div>
+    </section>
+
+    <!-- Sign Up and Purchase Section -->
+    <section id="signup" class="section signup-section">
+        <div class="signup-content">
+            <h2>Get Your Product</h2>
+            <p>Sign up with Google to unlock the full potential of our AI Question Paper Generator.</p>
+
+            <!-- Google Sign-In Button -->
+            <a href='/login'><button>Login</button></a>
+
+            <!-- Payment Section (Hidden initially) -->
+            <div id="payment-section" style="display:none;">
+                <p>Now, complete the purchase to own the product forever.</p>
+                <form action="/process_payment" method="POST" class="payment-form">
+                    <!-- Replace with your preferred payment integration -->
+                    <button type="submit" class="pay-btn">Pay Now</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>Powered by Flask | AI Model: Google Gemini</p>
+    </footer>
+
+    <!-- Google Sign-In Script -->
+    <script>
+        // Google Sign-In success callback
+        function onSignIn(googleUser) {
+            var profile = googleUser.getBasicProfile();
+            console.log('User signed in: ' + profile.getName());
+
+            // Show payment section after sign-in
+            document.getElementById("payment-section").style.display = "block";
+        }
+
+        // Optional: Sign out function
+        function signOut() {
+            var auth2 = gapi.auth2.getAuthInstance();
+            auth2.signOut().then(function () {
+                console.log('User signed out.');
+                document.getElementById("payment-section").style.display = "none";
+            });
+        }
+    </script>
+</body>
+</html>

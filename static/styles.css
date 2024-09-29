@@ -1,0 +1,277 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background: radial-gradient(circle, #000000, #6a0dad);
+    color: #fff;
+    line-height: 1.8;
+    position: relative;
+    min-height: 100vh;
+}
+
+/* Lightning Effect Background */
+body::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(circle, rgba(255, 255, 255, 0.4), transparent), 
+                      linear-gradient(45deg, transparent 75%, rgba(255, 255, 255, 0.1));
+    mix-blend-mode: overlay;
+    z-index: -1;
+    opacity: 0.7;
+}
+
+header {
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.7);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo img {
+    width: 120px;
+}
+
+.section {
+    padding: 100px 50px;
+    text-align: left;
+}
+
+.about-section {
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(10px);
+}
+
+.about-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.about-text {
+    width: 50%;
+    padding-right: 20px;
+}
+
+.about-text h2 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #fff;
+}
+
+.about-text p {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: #ddd;
+}
+
+.about-image {
+    width: 45%;
+}
+
+.about-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+}
+
+.why-us-section {
+    background: rgba(106, 13, 173, 0.9);
+}
+
+.why-us-content h2 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #fff;
+}
+
+.why-us-content p {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: #ddd;
+}
+
+.why-us-content ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.why-us-content ul li {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #ddd;
+    display: flex;
+    align-items: center;
+}
+
+.why-us-content ul li::before {
+    content: '•';
+    color: #ff6a95;
+    display: inline-block; 
+    width: 1em;
+    margin-right: 10px;
+}
+
+.how-it-works-section {
+    background: radial-gradient(circle, #000000, #6a0dad);
+    backdrop-filter: blur(5px);
+}
+
+.how-it-works-content h2 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #fff;
+}
+
+.how-it-works-content p {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: #ddd;
+}
+
+.how-it-works-content ol {
+    list-style-type: decimal;
+    padding-left: 20px;
+}
+
+.how-it-works-content ol li {
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+    color: #ddd;
+}
+
+.signup-section {
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(10px);
+}
+
+.signup-content {
+    text-align: center;
+}
+
+.signup-content h2 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #fff;
+}
+
+.signup-content p {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+    color: #ddd;
+}
+
+/* Google Sign-In Button Styling */
+.g-signin2 {
+    margin: 0 auto;
+}
+
+/* Payment Section */
+.payment-form {
+    margin-top: 20px;
+}
+
+.pay-btn {
+    background-color: #4e54c8;
+    color: #ffffff;
+    padding: 15px 45px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease;
+}
+
+.pay-btn:hover {
+    background-color: #362d8a;
+}
+
+/* Footer Styling */
+.footer {
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.7);
+    text-align: center;
+    color: #bbb;
+    font-size: 1rem;
+}
+
+.footer p {
+    margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .about-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .about-text, .about-image {
+        width: 100%;
+        padding: 0;
+    }
+
+    .about-image img {
+        margin-top: 20px;
+    }
+
+    .section {
+        padding: 80px 30px;
+    }
+
+    h2 {
+        font-size: 2.5rem;
+    }
+
+    p, ul, ol, li {
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .logo img {
+        width: 80px;
+    }
+
+    .about-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .about-text, .about-image {
+        width: 100%;
+    }
+
+    .about-image img {
+        margin-top: 20px;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+
+    p, ul, ol, li {
+        font-size: 1.2rem;
+    }
+
+    .pay-btn {
+        padding: 12px 30px;
+        font-size: 1.2rem;
+    }
+}
